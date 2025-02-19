@@ -3,7 +3,13 @@ primary_region = "lax"
 
 [build]
   builder = "paketobuildpacks/builder:base"
-  buildpacks = ["gcr.io/paketo-buildpacks/python"]
+  buildpacks = [
+    "gcr.io/paketo-buildpacks/python",
+    "gcr.io/paketo-buildpacks/apt"
+  ]
+
+[build.apt]
+  packages = ["ffmpeg"]
 
 [env]
   PYTHONUNBUFFERED = "1"

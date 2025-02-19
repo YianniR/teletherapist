@@ -3,13 +3,15 @@ name = "teletherapist-bot"
 version = "0.1.0"
 description = "A Telegram bot that uses Whisper and Claude for voice-to-text therapy"
 authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-python-telegram-bot = "^20.8"
+python-telegram-bot = {extras = ["job-queue"], version = "^20.8"}
 anthropic = "^0.18.1"
 openai-whisper = "^20231117"
 python-dotenv = "^1.0.0"
+ffmpeg-python = "^0.2.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
