@@ -7,18 +7,13 @@ primary_region = "lax"
 [env]
   PYTHONUNBUFFERED = "1"
 
-# Simple service definition
-[[services]]
-  protocol = "tcp"
-  internal_port = 8080
+# Specify this is a worker app
+[experimental]
+  cmd = ["python", "main.py"]
   auto_stop_machines = false
   auto_start_machines = true
   min_machines_running = 1
 
-  [[services.ports]]
-    port = 8080
-
-# Persistent storage
 [[mounts]]
   source = "bot_data"
   destination = "/app/data" 
