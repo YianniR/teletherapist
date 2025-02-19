@@ -1,0 +1,12 @@
+app = "your-bot-name"
+primary_region = "lax"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PYTHONUNBUFFERED = "1"
+
+[mounts]
+  source = "data"
+  destination = "/app/data" 
