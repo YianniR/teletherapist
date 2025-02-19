@@ -2,14 +2,16 @@ app = "teletherapist-bot"
 primary_region = "lax"
 
 [build]
-  dockerfile = "Dockerfile"
+  builder = "paketobuildpacks/builder:base"
+  buildpacks = ["gcr.io/paketo-buildpacks/python"]
 
 [env]
   PYTHONUNBUFFERED = "1"
+  PORT = "8080"
 
 # Specify this is a worker app
 [experimental]
-  cmd = ["python", "main.py"]
+  cmd = ["poetry", "run", "python", "main.py"]
   auto_stop_machines = false
   auto_start_machines = true
   min_machines_running = 1
