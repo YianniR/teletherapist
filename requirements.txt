@@ -1,0 +1,4 @@
+python-telegram-bot
+openai-whisper
+anthropic
+ffmpeg-python 
