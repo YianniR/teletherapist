@@ -1,4 +1,4 @@
-app = "your-bot-name"
+app = "teletherapist-bot"
 primary_region = "lax"
 
 [build]
@@ -7,13 +7,16 @@ primary_region = "lax"
 [env]
   PYTHONUNBUFFERED = "1"
 
-# Run as a background service
-[services]
-  [[services.run]]
-    command = "python main.py"
-    auto_stop_machines = false
-    auto_start_machines = true
-    min_machines_running = 1
+# Simple service definition
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 8080
 
 # Persistent storage
 [[mounts]]
